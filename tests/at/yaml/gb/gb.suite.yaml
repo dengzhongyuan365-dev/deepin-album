@@ -3,22 +3,16 @@ app: deepin-album
 module: gb
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_gb_001_s1
   name: '[066][smoke][acp1]关闭-窗口关闭按钮'
   description: ''
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  assert_steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
+  status: unsupported
+  reason: 'ViewTopTitle_WindowButtonGroupEx 是面板容器(Accessible.role: Grouping)，无法直接点击；子按钮无
+    accessible name，不可自动化'
+  steps: []
+  assert_steps: []
 teardown:
 - action: session_stop

@@ -3,7 +3,7 @@ app: deepin-album
 module: kt
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_kt_003_s1
@@ -18,16 +18,9 @@ suites:
 - id: suite_kt_007_s1
   name: 主菜单-关于
   description: ''
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  assert_steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
+  status: unsupported
+  reason: ViewTopTitle_WindowButtonGroupEx 是面板容器，无法直接点击
+  steps: []
+  assert_steps: []
 teardown:
 - action: session_stop

@@ -3,13 +3,17 @@ app: deepin-album
 module: ocr
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_ocr_001_s1
   name: OCR-入口检查-窗口下点击工具栏按钮
   description: ''
   steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   - step_type: action
     action: element_action
     selector:

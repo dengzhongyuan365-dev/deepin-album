@@ -3,7 +3,7 @@ app: deepin-album
 module: dhp
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_dhp_001_s1
@@ -12,24 +12,23 @@ suites:
   steps:
   - step_type: action
     action: keyboard_hot_key
+    key: f5
+  - step_type: action
+    action: keyboard_hot_key
     key: escape
   assert_steps:
   - step_type: assert
     action: assert_element
     selector:
-      name: Exit
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Pause
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FadeInOutImage
+      name: ImageViewer
 - id: suite_dhp_002_s1
   name: 幻灯片-多张图片循环放映
   description: ''
   steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   - step_type: action
     action: element_action
     selector:
@@ -39,6 +38,6 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ImageViewer
+      name: FadeInOutImage
 teardown:
 - action: session_stop

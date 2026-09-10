@@ -3,7 +3,7 @@ app: deepin-album
 module: fz
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_fz_001_s1
@@ -13,6 +13,10 @@ suites:
   - step_type: action
     action: keyboard_hot_key
     key: ctrl+C
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   assert_steps:
   - step_type: assert
     action: assert_element
@@ -22,6 +26,10 @@ suites:
   name: 复制-右键菜单复制
   description: ''
   steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   - step_type: action
     action: element_action
     selector:

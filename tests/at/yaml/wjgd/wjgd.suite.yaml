@@ -3,13 +3,17 @@ app: deepin-album
 module: wjgd
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_wjgd_001_s1
   name: '[224][core][acp1]文管打开-全屏下右键菜单在文管中显示'
   description: ''
   steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   - step_type: action
     action: element_action
     selector:

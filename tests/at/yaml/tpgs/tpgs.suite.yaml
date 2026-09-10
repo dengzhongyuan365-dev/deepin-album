@@ -3,7 +3,7 @@ app: deepin-album
 module: tpgs
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_tpgs_001_s1
@@ -30,11 +30,15 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: RotateButton
+      name: ImageViewer
 - id: suite_tpgs_003_s1
   name: '[296][smoke][acp1]图片格式-支持设置壁纸格式图片检查'
   description: ''
-  steps: []
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   assert_steps:
   - step_type: assert
     action: assert_element

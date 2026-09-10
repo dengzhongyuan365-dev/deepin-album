@@ -1,65 +1,12 @@
 version: '1.0'
 cases:
-- id: suite_ocr_001_s1
-  name: OCR-入口检查-窗口下点击工具栏按钮
-  module: ocr
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: ExtractText
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ExtractText
-- id: suite_tif_001_s1
-  name: tif多页图-播放幻灯片
-  module: tif
+- id: suite_dhp_001_s1
+  name: 幻灯片-ESC退出幻灯片放映
+  module: dhp
   steps:
   - step_type: action
     action: keyboard_hot_key
     key: f5
-  - step_type: action
-    action: mouse_double_click
-    selector:
-      name: FadeInOutImage
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FadeInOutImage
-- id: suite_zcd_001_s1
-  name: 主菜单-关于与看图窗口关闭后打开交互
-  module: zcd
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-- id: suite_qp_001_s1
-  name: 全屏-双击图片全屏
-  module: qp
-  steps:
-  - step_type: action
-    action: mouse_double_click
-    selector:
-      name: ImageViewer
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_qp_002_s1
-  name: '[046][smoke][acp1]全屏-快捷键退出全屏'
-  module: qp
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: f11
   - step_type: action
     action: keyboard_hot_key
     key: escape
@@ -67,9 +14,9 @@ cases:
     action: assert_element
     selector:
       name: ImageViewer
-- id: suite_qp_003_s1
-  name: 全屏-右键菜单退出全屏
-  module: qp
+- id: suite_dhp_002_s1
+  name: 幻灯片-多张图片循环放映
+  module: dhp
   steps:
   - step_type: action
     action: mouse_right_click
@@ -78,262 +25,12 @@ cases:
   - step_type: action
     action: element_action
     selector:
-      name: RightFullscreen
+      name: SlideShow
     do: click
   - step_type: assert
     action: assert_element
     selector:
-      name: ImageViewer
-- id: suite_ggnl_001_s1
-  name: '[311]公共能力-看图自有窗口属性'
-  module: ggnl
-  steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FavoriteButton
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImportButton
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ToggleSidebarButton
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FloatLabel
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: StatusBar
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: StatusLabel
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: TitleRect
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Export
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FavoriteAction
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: UnFavoriteAction
-- id: suite_ggnl_002_s1
-  name: '[213]公共能力-看图工具栏单张图片检查'
-  module: ggnl
-  steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_ggnl_012_s1
-  name: 公共能力-跟随第三方应用调整窗口尺寸
-  module: ggnl
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-- id: suite_gb_001_s1
-  name: '[066][smoke][acp1]关闭-窗口关闭按钮'
-  module: gb
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-- id: suite_sc_001_s1
-  name: 删除-右键菜单删除
-  module: sc
-  steps:
-  - step_type: action
-    action: mouse_right_click
-    selector:
-      name: ImageViewer
-  - step_type: action
-    action: element_action
-    selector:
-      name: Delete
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Cancel
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_sc_002_s1
-  name: 删除-删除单张图片后看图界面展示
-  module: sc
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: delete
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_tpxx_001_s1
-  name: '[042][smoke][acp1]图片信息-工具栏切换图片展示'
-  module: tpxx
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: ctrl+I
-  - step_type: action
-    action: element_action
-    selector:
-      name: ThumbnailButton_ToolButton
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: BasicInfo
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FileNameProp
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Size
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Dimensions
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Type
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: DateCaptured
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: DateModified
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: DetailInfoItem
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageInfo
-- id: suite_tpxx_002_s1
-  name: 图片信息-右键菜单打开图片信息
-  module: tpxx
-  steps:
-  - step_type: action
-    action: mouse_right_click
-    selector:
-      name: ImageViewer
-  - step_type: action
-    action: element_action
-    selector:
-      name: ImageInfo
-    do: click
-  - step_type: action
-    action: element_action
-    selector:
-      name: ImageInfo
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageInfo
-- id: suite_tpgs_001_s1
-  name: '[core]图片格式-右键菜单检查'
-  module: tpgs
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: ctrl+A
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_tpgs_002_s1
-  name: '[071][smoke][acp1]图片格式-支持旋转格式图片检查(仅bmp格式实现自动化)'
-  module: tpgs
-  steps:
-  - step_type: action
-    action: mouse_right_click
-    selector:
-      name: ImageViewer
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: RotateButton
-- id: suite_tpgs_003_s1
-  name: '[296][smoke][acp1]图片格式-支持设置壁纸格式图片检查'
-  module: tpgs
-  steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: SetAsWallpaper
-- id: suite_jccz_001_s1
-  name: '[057][acp1][smoke]缩放-最小缩小倍数检查'
-  module: jccz
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: down
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_fz_001_s1
-  name: 复制-复制大分辨率图片
-  module: fz
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: ctrl+C
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Copy
-- id: suite_fz_002_s1
-  name: 复制-右键菜单复制
-  module: fz
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: Copy
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
+      name: FadeInOutImage
 - id: suite_dhwk_001_s1
   name: 导航窗口-移动显示区域
   module: dhwk
@@ -389,6 +86,87 @@ cases:
     action: assert_element
     selector:
       name: NavigationCloseButton
+- id: suite_dk_001_s1
+  name: 加载图片-文管中双击图片
+  module: dk
+  steps:
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: ImageViewer
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_dk_003_s1
+  name: '[062][smoke][acp1]加载图片-拖拽图片到桌面看图图标处打开'
+  module: dk
+  steps:
+  - step_type: action
+    action: mouse_drag
+    selector:
+      name: ImageViewer
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_dy_001_s1
+  name: '[021][acp1][smoke]打印预览-图片右键唤起打印'
+  module: dy
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: Print
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_fz_001_s1
+  name: 复制-复制大分辨率图片
+  module: fz
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+C
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Copy
+- id: suite_fz_002_s1
+  name: 复制-右键菜单复制
+  module: fz
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: Copy
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_ggnl_002_s1
+  name: '[213]公共能力-看图工具栏单张图片检查'
+  module: ggnl
+  steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
 - id: suite_gjl_005_s1
   name: '[002][acp1][smoke]工具栏-下一张按钮'
   module: gjl
@@ -550,190 +328,36 @@ cases:
     action: assert_element
     selector:
       name: ImageViewer
-- id: suite_dy_001_s1
-  name: '[021][acp1][smoke]打印预览-图片右键唤起打印'
-  module: dy
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: Print
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_dk_001_s1
-  name: 加载图片-文管中双击图片
-  module: dk
-  steps:
-  - step_type: action
-    action: mouse_double_click
-    selector:
-      name: ImageViewer
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_dk_003_s1
-  name: '[062][smoke][acp1]加载图片-拖拽图片到桌面看图图标处打开'
-  module: dk
-  steps:
-  - step_type: action
-    action: mouse_drag
-    selector:
-      name: ImageViewer
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_wjgd_001_s1
-  name: '[224][core][acp1]文管打开-全屏下右键菜单在文管中显示'
-  module: wjgd
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: DisplayInFileManager
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_xz_001_s1
-  name: '[214][smoke][acp1]旋转-全屏快捷键顺时针旋转'
-  module: xz
+- id: suite_jccz_001_s1
+  name: '[057][acp1][smoke]缩放-最小缩小倍数检查'
+  module: jccz
   steps:
   - step_type: action
     action: keyboard_hot_key
-    key: ctrl+R
+    key: down
   - step_type: assert
     action: assert_element
     selector:
       name: ImageViewer
-- id: suite_xz_002_s1
-  name: '[216][core][acp1]旋转-全屏右键菜单逆时针旋转'
-  module: xz
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: RotateCounterClockItem
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_dhp_001_s1
-  name: 幻灯片-ESC退出幻灯片放映
-  module: dhp
+- id: suite_jsjh_002_s1
+  name: '[024][smoke][acp1]键鼠交互-快捷键Dow'
+  module: jsjh
   steps:
   - step_type: action
     action: keyboard_hot_key
-    key: escape
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Exit
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Pause
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FadeInOutImage
-- id: suite_dhp_002_s1
-  name: 幻灯片-多张图片循环放映
-  module: dhp
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: SlideShow
-    do: click
+    key: down
   - step_type: assert
     action: assert_element
     selector:
       name: ImageViewer
-- id: suite_yhcj_001_s1
-  name: '[acp2][看图]OCR识别长图成功'
-  module: yhcj
+- id: suite_jsjh_008_s1
+  name: '[287][smoke][acp1]键鼠交互-快捷键鼠标滚轮'
+  module: jsjh
   steps:
   - step_type: action
     action: mouse_scroll
     selector:
       name: ImageViewer
-  - step_type: action
-    action: mouse_double_click
-    selector:
-      name: ImageViewer
-  - step_type: action
-    action: element_action
-    selector:
-      name: ExtractText
-    do: click
-  - step_type: action
-    action: mouse_drag
-    selector:
-      name: ImageViewer
-  - step_type: action
-    action: element_action
-    selector:
-      name: ExtractText
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ExtractText
-- id: suite_yhcj_002_s1
-  name: '[321][acp2][看图]视图切换、放大、旋转、翻转'
-  module: yhcj
-  steps:
-  - step_type: action
-    action: mouse_scroll
-    selector:
-      name: ImageViewer
-  - step_type: action
-    action: element_action
-    selector:
-      name: RotateButton
-    do: click
-  - step_type: action
-    action: element_action
-    selector:
-      name: ZoomRatioButton
-    do: click
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: RotateButton
-- id: suite_yhcj_003_s1
-  name: '[acp2][场景测试][看图]卸载截图, 看图OCR识别成功'
-  module: yhcj
-  steps:
-  - step_type: action
-    action: mouse_double_click
-    selector:
-      name: ImageViewer
-  - step_type: action
-    action: element_action
-    selector:
-      name: ExtractText
-    do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ExtractText
-- id: suite_yhcj_004_s1
-  name: '[320][acp2][看图]格式支持'
-  module: yhcj
-  steps:
   - step_type: assert
     action: assert_element
     selector:
@@ -746,19 +370,90 @@ cases:
     action: assert_element
     selector:
       name: ImageViewer
-- id: suite_kt_007_s1
-  name: 主菜单-关于
-  module: kt
+- id: suite_ocr_001_s1
+  name: OCR-入口检查-窗口下点击工具栏按钮
+  module: ocr
   steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   - step_type: action
     action: element_action
     selector:
-      name: ViewTopTitle_WindowButtonGroupEx
+      name: ExtractText
     do: click
   - step_type: assert
     action: assert_element
     selector:
-      name: ViewTopTitle_WindowButtonGroupEx
+      name: ExtractText
+- id: suite_qp_001_s1
+  name: 全屏-双击图片全屏
+  module: qp
+  steps:
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: ImageViewer
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_qp_002_s1
+  name: '[046][smoke][acp1]全屏-快捷键退出全屏'
+  module: qp
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: escape
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_qp_003_s1
+  name: 全屏-右键菜单退出全屏
+  module: qp
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_sc_001_s1
+  name: 删除-右键菜单删除
+  module: sc
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: Delete
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Cancel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_sc_002_s1
+  name: 删除-删除单张图片后看图界面展示
+  module: sc
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: delete
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
 - id: suite_swbz_001_s1
   name: 壁纸-窗口下设置壁纸
   module: swbz
@@ -784,45 +479,241 @@ cases:
     action: assert_element
     selector:
       name: ImageViewer
+- id: suite_tif_001_s1
+  name: tif多页图-播放幻灯片
+  module: tif
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: f5
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: FadeInOutImage
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FadeInOutImage
+- id: suite_tpgs_001_s1
+  name: '[core]图片格式-右键菜单检查'
+  module: tpgs
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+A
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_tpgs_002_s1
+  name: '[071][smoke][acp1]图片格式-支持旋转格式图片检查(仅bmp格式实现自动化)'
+  module: tpgs
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_tpgs_003_s1
+  name: '[296][smoke][acp1]图片格式-支持设置壁纸格式图片检查'
+  module: tpgs
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SetAsWallpaper
+- id: suite_tpxx_001_s1
+  name: '[042][smoke][acp1]图片信息-工具栏切换图片展示'
+  module: tpxx
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+I
+  - step_type: action
+    action: element_action
+    selector:
+      name: ThumbnailButton_ToolButton
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: BasicInfo
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FileNameProp
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Size
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Dimensions
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Type
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: DateCaptured
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: DateModified
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: DetailInfoItem
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageInfo
+- id: suite_tpxx_002_s1
+  name: 图片信息-右键菜单打开图片信息
+  module: tpxx
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: ImageInfo
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageInfo
+- id: suite_wjgd_001_s1
+  name: '[224][core][acp1]文管打开-全屏下右键菜单在文管中显示'
+  module: wjgd
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: DisplayInFileManager
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_xz_001_s1
+  name: '[214][smoke][acp1]旋转-全屏快捷键顺时针旋转'
+  module: xz
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+R
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_xz_002_s1
+  name: '[216][core][acp1]旋转-全屏右键菜单逆时针旋转'
+  module: xz
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: RotateCounterClockItem
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_yhcj_001_s1
+  name: '[acp2][看图]OCR识别长图成功'
+  module: yhcj
+  steps:
+  - step_type: action
+    action: mouse_scroll
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: ExtractText
+    do: click
+  - step_type: action
+    action: mouse_drag
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: ExtractText
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ExtractText
+- id: suite_yhcj_003_s1
+  name: '[acp2][场景测试][看图]卸载截图, 看图OCR识别成功'
+  module: yhcj
+  steps:
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: ExtractText
+    do: click
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ExtractText
+- id: suite_yhcj_004_s1
+  name: '[320][acp2][看图]格式支持'
+  module: yhcj
+  steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
 - id: suite_zcm_003_s1
   name: '[210]重命名-文件名字符类型检查'
   module: zcm
   steps:
-  - step_type: assert
-    action: assert_element
+  - step_type: action
+    action: mouse_right_click
     selector:
-      name: Rename
-- id: suite_zcm_004_s1
-  name: '[268][core][acp1]重命名-修改图片名称较长时，检查重命名窗口名称之间展示省略号'
-  module: zcm
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: F2
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  - step_type: action
-    action: keyboard_hot_key
-    key: F2
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Rename
-- id: suite_zcm_005_s1
-  name: '[350]重命名-修改名称与其他非同格式图片重名时，检查重命名窗口展示'
-  module: zcm
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: F2
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
+      name: ImageViewer
   - step_type: assert
     action: assert_element
     selector:
@@ -843,33 +734,14 @@ cases:
   module: zcm
   steps:
   - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
     action: element_action
     selector:
       name: Rename
     do: click
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_jsjh_002_s1
-  name: '[024][smoke][acp1]键鼠交互-快捷键Dow'
-  module: jsjh
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: down
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-- id: suite_jsjh_008_s1
-  name: '[287][smoke][acp1]键鼠交互-快捷键鼠标滚轮'
-  module: jsjh
-  steps:
-  - step_type: action
-    action: mouse_scroll
-    selector:
-      name: ImageViewer
   - step_type: assert
     action: assert_element
     selector:

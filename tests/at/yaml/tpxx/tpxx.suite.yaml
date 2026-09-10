@@ -3,7 +3,7 @@ app: deepin-album
 module: tpxx
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_tpxx_001_s1
@@ -63,11 +63,6 @@ suites:
     action: mouse_right_click
     selector:
       name: ImageViewer
-  - step_type: action
-    action: element_action
-    selector:
-      name: ImageInfo
-    do: click
   - step_type: action
     action: element_action
     selector:

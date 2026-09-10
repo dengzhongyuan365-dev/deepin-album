@@ -3,7 +3,7 @@ app: deepin-album
 module: xz
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_xz_001_s1
@@ -22,6 +22,10 @@ suites:
   name: '[216][core][acp1]旋转-全屏右键菜单逆时针旋转'
   description: ''
   steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   - step_type: action
     action: element_action
     selector:

@@ -3,13 +3,17 @@ app: deepin-album
 module: zcm
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_zcm_003_s1
   name: '[210]重命名-文件名字符类型检查'
   description: ''
-  steps: []
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   assert_steps:
   - step_type: assert
     action: assert_element
@@ -18,40 +22,17 @@ suites:
 - id: suite_zcm_004_s1
   name: '[268][core][acp1]重命名-修改图片名称较长时，检查重命名窗口名称之间展示省略号'
   description: ''
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: F2
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  - step_type: action
-    action: keyboard_hot_key
-    key: F2
-  assert_steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Rename
+  status: unsupported
+  reason: ViewTopTitle_WindowButtonGroupEx 是面板容器，无法直接点击
+  steps: []
+  assert_steps: []
 - id: suite_zcm_005_s1
   name: '[350]重命名-修改名称与其他非同格式图片重名时，检查重命名窗口展示'
   description: ''
-  steps:
-  - step_type: action
-    action: keyboard_hot_key
-    key: F2
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  assert_steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Rename
+  status: unsupported
+  reason: ViewTopTitle_WindowButtonGroupEx 是面板容器，无法直接点击
+  steps: []
+  assert_steps: []
 - id: suite_zcm_007_s1
   name: '[065][smoke][acp1]重命名-只读图片重命名'
   description: ''
@@ -68,6 +49,10 @@ suites:
   name: '[003][smoke][acp1]重命名-读写图片重命名'
   description: ''
   steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
   - step_type: action
     action: element_action
     selector:

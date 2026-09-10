@@ -3,22 +3,15 @@ app: deepin-album
 module: zcd
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_zcd_001_s1
   name: 主菜单-关于与看图窗口关闭后打开交互
   description: ''
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  assert_steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
+  status: unsupported
+  reason: ViewTopTitle_WindowButtonGroupEx 是面板容器，无法直接点击
+  steps: []
+  assert_steps: []
 teardown:
 - action: session_stop

@@ -3,7 +3,7 @@ app: deepin-album
 module: yhcj
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_yhcj_001_s1
@@ -19,12 +19,20 @@ suites:
     selector:
       name: ImageViewer
   - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
     action: element_action
     selector:
       name: ExtractText
     do: click
   - step_type: action
     action: mouse_drag
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: mouse_right_click
     selector:
       name: ImageViewer
   - step_type: action
@@ -40,37 +48,21 @@ suites:
 - id: suite_yhcj_002_s1
   name: '[321][acp2][看图]视图切换、放大、旋转、翻转'
   description: ''
-  steps:
-  - step_type: action
-    action: mouse_scroll
-    selector:
-      name: ImageViewer
-  - step_type: action
-    action: element_action
-    selector:
-      name: RotateButton
-    do: click
-  - step_type: action
-    action: element_action
-    selector:
-      name: ZoomRatioButton
-    do: click
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  assert_steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: RotateButton
+  status: unsupported
+  reason: RotateButton 和 ZoomRatioButton 仅在相册视图(AlbumTitle)可见，看图视图中不可用；且 ViewTopTitle_WindowButtonGroupEx
+    为面板不可点击
+  steps: []
+  assert_steps: []
 - id: suite_yhcj_003_s1
   name: '[acp2][场景测试][看图]卸载截图, 看图OCR识别成功'
   description: ''
   steps:
   - step_type: action
     action: mouse_double_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: mouse_right_click
     selector:
       name: ImageViewer
   - step_type: action

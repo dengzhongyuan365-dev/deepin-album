@@ -3,58 +3,16 @@ app: deepin-album
 module: ggnl
 setup:
 - action: session_start
-  command: deepin-album
+  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
   wait: 3.0
 suites:
 - id: suite_ggnl_001_s1
   name: '[311]公共能力-看图自有窗口属性'
   description: ''
+  status: unsupported
+  reason: 用例混合了相册视图元素(FavoriteButton/ImportButton/ToggleSidebarButton)和看图视图元素(FloatLabel/ImageViewer/Export)，两者不可能同时可见
   steps: []
-  assert_steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FavoriteButton
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImportButton
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ToggleSidebarButton
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FloatLabel
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: StatusBar
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: StatusLabel
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: TitleRect
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ImageViewer
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: Export
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: FavoriteAction
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: UnFavoriteAction
+  assert_steps: []
 - id: suite_ggnl_002_s1
   name: '[213]公共能力-看图工具栏单张图片检查'
   description: ''
@@ -67,16 +25,9 @@ suites:
 - id: suite_ggnl_012_s1
   name: 公共能力-跟随第三方应用调整窗口尺寸
   description: ''
-  steps:
-  - step_type: action
-    action: element_action
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
-    do: click
-  assert_steps:
-  - step_type: assert
-    action: assert_element
-    selector:
-      name: ViewTopTitle_WindowButtonGroupEx
+  status: unsupported
+  reason: ViewTopTitle_WindowButtonGroupEx 是面板容器，无法直接点击
+  steps: []
+  assert_steps: []
 teardown:
 - action: session_stop

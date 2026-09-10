@@ -3,7 +3,7 @@ app: deepin-album
 module: jsjh
 setup:
 - action: session_start
-  command: deepin-album /usr/share/wallpapers/deepin/Colorful-Abstraction03.jpg
+  command: deepin-album tests/at/assets/test_image.jpg
   wait: 3.0
 suites:
 - id: suite_jsjh_002_s1

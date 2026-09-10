@@ -1,0 +1,26 @@
+name: tif_suite
+app: deepin-album
+module: tif
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_tif_001_s1
+  name: tif多页图-播放幻灯片
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: f5
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: FadeInOutImage
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FadeInOutImage
+teardown:
+- action: session_stop

@@ -1,0 +1,68 @@
+name: dhwk_suite
+app: deepin-album
+module: dhwk
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_dhwk_001_s1
+  name: 导航窗口-移动显示区域
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_drag
+    selector:
+      name: ImageViewer
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ThumbnailViewBackGround
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: NavigationCloseButton
+- id: suite_dhwk_002_s1
+  name: '[206][acp1][smoke]导航窗口-按钮关闭导航窗口'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: NavigationCloseButton
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: NavigationCloseButton
+- id: suite_dhwk_003_s1
+  name: '[111][acp1][smoke]导航窗口-右键菜单唤起或关闭'
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: EnableNavigation
+    do: click
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: EnableNavigation
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: NavigationCloseButton
+teardown:
+- action: session_stop

@@ -1,0 +1,24 @@
+name: zcd_suite
+app: deepin-album
+module: zcd
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_zcd_001_s1
+  name: 主菜单-关于与看图窗口关闭后打开交互
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: ViewTopTitle_WindowButtonGroupEx
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ViewTopTitle_WindowButtonGroupEx
+teardown:
+- action: session_stop

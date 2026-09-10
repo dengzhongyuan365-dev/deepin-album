@@ -1,0 +1,96 @@
+name: yhcj_suite
+app: deepin-album
+module: yhcj
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_yhcj_001_s1
+  name: '[acp2][看图]OCR识别长图成功'
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_scroll
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: ExtractText
+    do: click
+  - step_type: action
+    action: mouse_drag
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: ExtractText
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ExtractText
+- id: suite_yhcj_002_s1
+  name: '[321][acp2][看图]视图切换、放大、旋转、翻转'
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_scroll
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: RotateButton
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      name: ZoomRatioButton
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      name: ViewTopTitle_WindowButtonGroupEx
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RotateButton
+- id: suite_yhcj_003_s1
+  name: '[acp2][场景测试][看图]卸载截图, 看图OCR识别成功'
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: ExtractText
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ExtractText
+- id: suite_yhcj_004_s1
+  name: '[320][acp2][看图]格式支持'
+  description: ''
+  steps: []
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

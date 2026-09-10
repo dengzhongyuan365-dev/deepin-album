@@ -1,0 +1,36 @@
+name: xz_suite
+app: deepin-album
+module: xz
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_xz_001_s1
+  name: '[214][smoke][acp1]旋转-全屏快捷键顺时针旋转'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+R
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_xz_002_s1
+  name: '[216][core][acp1]旋转-全屏右键菜单逆时针旋转'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: RotateCounterClockItem
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

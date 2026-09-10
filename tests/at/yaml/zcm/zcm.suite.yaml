@@ -1,0 +1,82 @@
+name: zcm_suite
+app: deepin-album
+module: zcm
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_zcm_003_s1
+  name: '[210]重命名-文件名字符类型检查'
+  description: ''
+  steps: []
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Rename
+- id: suite_zcm_004_s1
+  name: '[268][core][acp1]重命名-修改图片名称较长时，检查重命名窗口名称之间展示省略号'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: F2
+  - step_type: action
+    action: element_action
+    selector:
+      name: ViewTopTitle_WindowButtonGroupEx
+    do: click
+  - step_type: action
+    action: keyboard_hot_key
+    key: F2
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Rename
+- id: suite_zcm_005_s1
+  name: '[350]重命名-修改名称与其他非同格式图片重名时，检查重命名窗口展示'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: F2
+  - step_type: action
+    action: element_action
+    selector:
+      name: ViewTopTitle_WindowButtonGroupEx
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Rename
+- id: suite_zcm_007_s1
+  name: '[065][smoke][acp1]重命名-只读图片重命名'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: F2
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_zcm_008_s1
+  name: '[003][smoke][acp1]重命名-读写图片重命名'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: Rename
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

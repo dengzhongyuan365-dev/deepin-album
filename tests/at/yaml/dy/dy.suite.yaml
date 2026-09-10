@@ -1,0 +1,24 @@
+name: dy_suite
+app: deepin-album
+module: dy
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_dy_001_s1
+  name: '[021][acp1][smoke]打印预览-图片右键唤起打印'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: Print
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

@@ -1,0 +1,82 @@
+name: tpxx_suite
+app: deepin-album
+module: tpxx
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_tpxx_001_s1
+  name: '[042][smoke][acp1]图片信息-工具栏切换图片展示'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+I
+  - step_type: action
+    action: element_action
+    selector:
+      name: ThumbnailButton_ToolButton
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: BasicInfo
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FileNameProp
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Size
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Dimensions
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Type
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: DateCaptured
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: DateModified
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: DetailInfoItem
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageInfo
+- id: suite_tpxx_002_s1
+  name: 图片信息-右键菜单打开图片信息
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: ImageInfo
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      name: ImageInfo
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageInfo
+teardown:
+- action: session_stop

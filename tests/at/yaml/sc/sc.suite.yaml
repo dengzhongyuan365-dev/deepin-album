@@ -1,0 +1,44 @@
+name: sc_suite
+app: deepin-album
+module: sc
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_sc_001_s1
+  name: 删除-右键菜单删除
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: Delete
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Cancel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_sc_002_s1
+  name: 删除-删除单张图片后看图界面展示
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: delete
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

@@ -1,0 +1,22 @@
+name: jccz_suite
+app: deepin-album
+module: jccz
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_jccz_001_s1
+  name: '[057][acp1][smoke]缩放-最小缩小倍数检查'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: down
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

@@ -1,0 +1,36 @@
+name: fz_suite
+app: deepin-album
+module: fz
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_fz_001_s1
+  name: 复制-复制大分辨率图片
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+C
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Copy
+- id: suite_fz_002_s1
+  name: 复制-右键菜单复制
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: Copy
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

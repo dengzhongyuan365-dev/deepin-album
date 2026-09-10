@@ -1,0 +1,236 @@
+version: '1.0'
+source: at-case-authoring:element-map.yaml
+scan_total: 46
+elements:
+  RightFullscreen:
+    role: ''
+    ui_name: 全屏
+    desc: 右键菜单-全屏
+    locator: name
+  Print:
+    role: ''
+    ui_name: 打印
+    desc: 右键菜单-打印
+    locator: name
+  ExtractText:
+    role: ''
+    ui_name: OCR识别文字
+    desc: 右键菜单-OCR识别文字
+    locator: name
+  SlideShow:
+    role: ''
+    ui_name: 幻灯片放映
+    desc: 右键菜单-幻灯片放映
+    locator: name
+  Export:
+    role: ''
+    ui_name: 导出
+    desc: 右键菜单-导出
+    locator: name
+  Copy:
+    role: ''
+    ui_name: 复制
+    desc: 右键菜单-复制
+    locator: name
+  Rename:
+    role: ''
+    ui_name: 重命名
+    desc: 右键菜单-重命名
+    locator: name
+  Delete:
+    role: ''
+    ui_name: 删除
+    desc: 右键菜单-删除
+    locator: name
+  FavoriteAction:
+    role: ''
+    ui_name: 收藏
+    desc: 右键菜单-收藏
+    locator: name
+  UnFavoriteAction:
+    role: ''
+    ui_name: 取消收藏
+    desc: 右键菜单-取消收藏
+    locator: name
+  RotateClockItem:
+    role: ''
+    ui_name: 顺时针旋转
+    desc: 右键菜单-顺时针旋转
+    locator: name
+  RotateCounterClockItem:
+    role: ''
+    ui_name: 逆时针旋转
+    desc: 右键菜单-逆时针旋转
+    locator: name
+  EnableNavigation:
+    role: ''
+    ui_name: 显示隐藏导航窗口
+    desc: 右键菜单-显示/隐藏导航窗口
+    locator: name
+  SetAsWallpaper:
+    role: ''
+    ui_name: 设为壁纸
+    desc: 右键菜单-设为壁纸
+    locator: name
+  DisplayInFileManager:
+    role: ''
+    ui_name: 在文件管理器中显示
+    desc: 右键菜单-在文件管理器中显示
+    locator: name
+  ImageInfo:
+    role: ''
+    ui_name: 图片信息
+    desc: 右键菜单-图片信息
+    locator: name
+  FadeInOutImage:
+    role: ''
+    ui_name: 幻灯片图片
+    desc: 幻灯片放映图片
+    locator: name
+  Pause:
+    role: menu item
+    ui_name: 幻灯片暂停
+    desc: 幻灯片暂停菜单项
+    locator: name
+  Exit:
+    role: menu item
+    ui_name: 幻灯片退出
+    desc: 幻灯片退出菜单项
+    locator: name
+  ImageViewer:
+    role: ''
+    ui_name: 图片查看区域
+    desc: 图片查看区域
+    locator: name
+  FloatLabel:
+    role: ''
+    ui_name: 浮动提示
+    desc: 浮动提示标签
+    locator: name
+  NavigationCloseButton:
+    role: push button
+    ui_name: 导航窗口关闭按钮
+    desc: 导航窗口关闭按钮
+    locator: name
+  ThumbnailButton_ToolButton:
+    role: push button
+    ui_name: 上一张下一张按钮
+    desc: 缩略图上一张/下一张按钮
+    locator: name
+  ViewTopTitle_WindowButtonGroupEx:
+    role: ''
+    ui_name: 顶部窗口按钮组
+    desc: 顶部窗口按钮组（主菜单入口）
+    locator: name
+  ToolBarthumbnailListView:
+    role: ''
+    ui_name: 缩略图列表
+    desc: 工具栏缩略图列表
+    locator: name
+  BottomthumbnaillistView:
+    role: list
+    ui_name: 底部缩略图列表
+    desc: 底部缩略图列表
+    locator: name
+  StatusBar:
+    role: ''
+    ui_name: 状态栏
+    desc: 状态栏
+    locator: name
+  StatusLabel:
+    role: ''
+    ui_name: 状态标签
+    desc: 状态栏标签
+    locator: name
+  ThumbnailSizeSlider:
+    role: slider
+    ui_name: 缩略图大小滑块
+    desc: 缩略图大小调节滑块
+    locator: name
+  ThumbnailViewBackGround:
+    role: ''
+    ui_name: 导航窗口背景
+    desc: 导航窗口背景区域
+    locator: name
+  BasicInfo:
+    role: ''
+    ui_name: 基本信息
+    desc: 图片信息-基本信息
+    locator: name
+  FileNameProp:
+    role: ''
+    ui_name: 文件名属性
+    desc: 图片信息-文件名
+    locator: name
+  Size:
+    role: ''
+    ui_name: 大小属性
+    desc: 图片信息-大小
+    locator: name
+  Dimensions:
+    role: ''
+    ui_name: 分辨率属性
+    desc: 图片信息-分辨率
+    locator: name
+  Type:
+    role: ''
+    ui_name: 类型属性
+    desc: 图片信息-类型
+    locator: name
+  DateCaptured:
+    role: ''
+    ui_name: 拍摄日期属性
+    desc: 图片信息-拍摄日期
+    locator: name
+  DateModified:
+    role: ''
+    ui_name: 修改日期属性
+    desc: 图片信息-修改日期
+    locator: name
+  DetailInfoItem:
+    role: ''
+    ui_name: 详细信息项
+    desc: 图片信息-详细信息项
+    locator: name
+  ImportButton:
+    role: push button
+    ui_name: 导入按钮
+    desc: 相册导入按钮
+    locator: name
+  FavoriteButton:
+    role: push button
+    ui_name: 收藏按钮
+    desc: 相册收藏按钮
+    locator: name
+  RotateButton:
+    role: push button
+    ui_name: 旋转按钮
+    desc: 相册旋转按钮
+    locator: name
+  DeleteButton:
+    role: push button
+    ui_name: 删除按钮
+    desc: 相册删除按钮
+    locator: name
+  ToggleSidebarButton:
+    role: push button
+    ui_name: 侧边栏切换按钮
+    desc: 侧边栏显示/隐藏切换按钮
+    locator: name
+  ZoomRatioButton:
+    role: push button
+    ui_name: 缩放比例按钮
+    desc: 缩放比例按钮
+    locator: name
+  Cancel:
+    role: push button
+    ui_name: 取消按钮
+    desc: 删除确认对话框取消按钮
+    locator: name
+  TitleRect:
+    role: ''
+    ui_name: 标题区域
+    desc: 标题栏区域
+    locator: name
+transient_items: []
+unresolved: []

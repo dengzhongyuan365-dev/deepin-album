@@ -1,0 +1,36 @@
+name: dk_suite
+app: deepin-album
+module: dk
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_dk_001_s1
+  name: 加载图片-文管中双击图片
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: ImageViewer
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_dk_003_s1
+  name: '[062][smoke][acp1]加载图片-拖拽图片到桌面看图图标处打开'
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_drag
+    selector:
+      name: ImageViewer
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

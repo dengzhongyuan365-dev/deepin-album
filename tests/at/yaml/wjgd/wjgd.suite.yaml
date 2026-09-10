@@ -1,0 +1,24 @@
+name: wjgd_suite
+app: deepin-album
+module: wjgd
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_wjgd_001_s1
+  name: '[224][core][acp1]文管打开-全屏下右键菜单在文管中显示'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: DisplayInFileManager
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

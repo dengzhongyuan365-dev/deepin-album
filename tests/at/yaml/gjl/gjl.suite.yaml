@@ -1,0 +1,181 @@
+name: gjl_suite
+app: deepin-album
+module: gjl
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_gjl_005_s1
+  name: '[002][acp1][smoke]工具栏-下一张按钮'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: ThumbnailButton_ToolButton
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: DeleteButton
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ThumbnailSizeSlider
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ToolBarthumbnailListView
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ThumbnailButton_ToolButton
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: BottomthumbnaillistView
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RotateClockItem
+- id: suite_gjl_006_s1
+  name: '[006\061重复][acp1][smoke]工具栏-上一张按钮'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: ThumbnailButton_ToolButton
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ThumbnailButton_ToolButton
+- id: suite_gjl_007_s1
+  name: 工具栏-多张图片时检查工具栏
+  description: ''
+  steps: []
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_gjl_008_s1
+  name: '[339]键鼠切换-未发现图片文件页面，检查图片切换功能'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_gjl_009_s1
+  name: '[256][smoke]键鼠切换-鼠标滚动缩放图片过程中按下ctrl键'
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_scroll
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_gjl_011_s1
+  name: '[259][core]键鼠切换-首张图时切换上一张'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: ThumbnailButton_ToolButton
+    do: click
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ThumbnailButton_ToolButton
+- id: suite_gjl_016_s1
+  name: 键鼠切换-切换过程中移动鼠标至工具栏区域
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl
+  - step_type: action
+    action: mouse_scroll
+    selector:
+      name: ImageViewer
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_gjl_017_s1
+  name: '[257][smoke]键鼠切换-连续切换图片过程中松开ctrl键'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_gjl_021_s1
+  name: '[157][acp1][core]工具栏-图源不存在时恢复图源'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: alt+D
+  - step_type: action
+    action: keyboard_hot_key
+    key: delete
+  - step_type: action
+    action: element_action
+    selector:
+      name: ThumbnailButton_ToolButton
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      name: ThumbnailButton_ToolButton
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_gjl_022_s1
+  name: '[275][smoke]工具栏-全屏唤出工具栏'
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_double_click
+    selector:
+      name: ImageViewer
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

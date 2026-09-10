@@ -1,0 +1,35 @@
+name: jsjh_suite
+app: deepin-album
+module: jsjh
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_jsjh_002_s1
+  name: '[024][smoke][acp1]键鼠交互-快捷键Dow'
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: down
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_jsjh_008_s1
+  name: '[287][smoke][acp1]键鼠交互-快捷键鼠标滚轮'
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_scroll
+    selector:
+      name: ImageViewer
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

@@ -1,0 +1,44 @@
+name: dhp_suite
+app: deepin-album
+module: dhp
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_dhp_001_s1
+  name: 幻灯片-ESC退出幻灯片放映
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Exit
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Pause
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FadeInOutImage
+- id: suite_dhp_002_s1
+  name: 幻灯片-多张图片循环放映
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      name: SlideShow
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop

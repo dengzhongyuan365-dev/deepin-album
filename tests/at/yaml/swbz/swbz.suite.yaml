@@ -1,0 +1,37 @@
+name: swbz_suite
+app: deepin-album
+module: swbz
+setup:
+- action: session_start
+  command: deepin-album
+  wait: 3.0
+suites:
+- id: suite_swbz_001_s1
+  name: 壁纸-窗口下设置壁纸
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: ImageViewer
+  - step_type: action
+    action: element_action
+    selector:
+      name: SetAsWallpaper
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+- id: suite_swbz_002_s1
+  name: '[073][smoke][acp1]壁纸-窗口下不能设置壁纸'
+  description: ''
+  steps: []
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ImageViewer
+teardown:
+- action: session_stop
